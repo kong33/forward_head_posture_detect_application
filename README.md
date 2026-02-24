@@ -1,80 +1,229 @@
-# 거북목 자세교정 웹 어플리케이션
+# 🧍 Forward Head Posture Detection Web Application
 
-## 목차
-1. [About the Project](#-about-the-project)
-2. [기능 개요](#-기능-개요)
-3. [기술 스택](#-기술-스택)
-4. [주요 구현 내용](#-주요-구현-내용)
-5. [실행 방법](#-실행-방법)
-6. [프로젝트 구조](#-프로젝트-구조)
-7. [팀 구성 및 역할](#-팀-구성-및-역할)
 
----
+## 📌 Overview
 
-## About the Project
-기존의 자세 교정 프로그램들은 주로 측면 촬영 기반으로 측정하기 때문에  
-기기를 별도로 설치하거나 공간 세팅이 필요한 불편함이 있었다.  
+Traditional posture correction systems rely on side-angle camera setups, <br/>
+requiring no additional devices or physical space adjustments.
 
-본 웹 어플리케이션은 정면 웹캠 영상만으로 거북목 여부를 추정하므로,  
-추가 장비 없이도 컴퓨터 작업 도중 간편하게 자세를 측정할 수 있다.  
+This web application estimates forward head posture using only a **front-facing webcam**,<br/>
+allowing users to measure posture seamlessly during everyday computer use —
+without extra hardware.
 
 ---
 
-## 기능 개요
-- Google MediaPipe의 Pose Landmarker 모델을 사용해 실시간으로 신체 랜드마크를 추출  
-- 프론트엔드(Next.js)에서 이를 분석하여 거북목 자세를 자동 판별  
-- Three.js를 활용해 사용자의 평균 자세를 3D 모델로 시각화
-- PostgreSQL + NeonDB 기반으로 측정 데이터를 저장 및 관리  
+## 🎯 Key Features
+
+- Real-time body landmark extraction using **MediaPipe Pose Landmarker**
+- Client-side posture analysis built with **Next.js**
+- 3D visualization of averaged posture using **Three.js**
+- Measurement data storage powered by **PostgreSQL (NeonDB)**
 
 ---
 
-## 기술 스택
-| 구분 | 기술 |
-|------|------|
+## 🛠 Tech Stack
+
+| Category | Technology |
+|----------|------------|
 | **Frontend** | Next.js, React, TypeScript, TailwindCSS |
-| **AI / Pose Estimation** | MediaPipe Pose Landmarker |
+| **Pose Estimation** | MediaPipe Pose Landmarker |
 | **3D Visualization** | Three.js |
-| **Backend / DB** | PostgreSQL, AWS EC2 |
-| **Tools** | GitHub, Figma, VS Code, Jira |
+| **Backend / DB** | Next.js, PostgreSQL (NeonDB) |
+| **Collaboration** | GitHub, Jira |
 
-Jira link | https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34?atlOrigin=eyJpIjoiYjhhOGVmODg0ZTdmNGM5NTg1ZTk4ZTQ1ZWI1MjY5NzciLCJwIjoiaiJ9
----
-
-## 주요 구현 내용
-- 프론트엔드 전체 구조 및 화면 컴포넌트 설계  
-- 거북목 자세 판별 알고리즘 구현  
-- EC2 인스턴스 환경 구성 및 PostgreSQL 연동    
-- 실시간 측정 중 시청각적 피드백 추가  
+🔗 Jira Board:  
+https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 
 ---
 
-## 실행 방법
+## ⚙️ Core Implementation
+
+# 🔐 Focusing on Security
+
+This project processes user health-related data.  
+To minimize security risks and protect sensitive information, we implemented the following strategies:
+
+---
+
+### 1️⃣ Local Storage Strategy — IndexedDB
+
+Regularly collected posture data is stored in **IndexedDB on the client side** instead of being continuously transmitted to the server.
+
+This approach:
+
+- Reduces exposure to network-based interception (e.g., MITM attacks)
+- Minimizes unnecessary data transmission up to 90%
+- Limits server-side accumulation of sensitive health data
+- Enhances privacy by keeping raw measurement data on-device
+- Hardly being influcned by network disconnection.
+
+Only essential or aggregated data is persisted to the backend when necessary.
+
+---
+
+### 2️⃣ Full-Stack Architecture with Next.js
+
+We adopted **Next.js as a full-stack framework** to unify frontend and backend logic within a single controlled environment.
+
+This provides:
+
+- Reduced attack surface by avoiding publicly exposed REST endpoints
+- Server-only execution of database logic
+- Clear separation between client and server components
+- Centralized routing and middleware handling
+- Easier enforcement of authentication and authorization rules
+
+By consolidating the stack, we minimized configuration inconsistencies and improved maintainability.
+
+---
+
+### 3️⃣ Server Actions & Zod Validation
+
+We utilized **Next.js Server Actions** to handle mutations securely on the server side.
+
+Benefits include:
+
+- Sensitive logic never exposed to the client bundle
+- Direct server execution without separate API endpoints
+- Strong type safety between client and server
+
+Additionally, we integrated **Zod schema validation** to:
+
+- Enforce strict input validation
+- Prevent malformed or malicious payloads
+- Ensure runtime data integrity beyond TypeScript's compile-time checks
+
+
+
+
+---
+# 🔒 Backend & API Architecture
+
+## 🚀Type-Safe API Layer
+Constructed robust APIs using Next.js Server Actions, strictly validating client payloads via **Zod** to ensure runtime safety.
+```ts
+//actions/summaryActions.ts
+const PostDailySummarySchema = z.object({
+  dateISO: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "wrong date formation"),
+  sumWeighted: z.number().refine(Number.isFinite),
+  weightSeconds: z.number().refine((n) => Number.isFinite(n) && n > 0),
+  count: z.number().int().nonnegative(),
+});
+
+export type PostDailySummaryInput = z.infer<typeof PostDailySummarySchema>;
+
+export async function postDailySummaryAction(_prevState: ActionState<unknown>, data: PostDailySummaryInput) {
+  const session = await auth();
+  if (!session?.user?.id) {
+    return { ok: false, status: 401, message: SERVER_MESSAGES.AUTH_REQUIRED } as const;
+  }
+
+  const parsed = PostDailySummarySchema.safeParse(data);
+  if (!parsed.success) {
+    return { ok: false, status: 400, message: SERVER_MESSAGES.SYSTEM_MESSAGES } as const;
+  }
+
+  try {
+    const result = await upsertDailySummary({
+      ...parsed.data,
+      userId: session.user.id,
+    });
+    revalidateTag("daily_summary");
+
+    return { ok: true, data: result } as const;
+  } catch (error: unknown) {
+    logger.error("[postDailySummaryAction] Error:", error);
+    return { ok: false, status: 500, message: SERVER_MESSAGES.INTERNAL_SERVER_ERROR } as const;
+  }
+}
+
+```
+
+## Why We Used Next.js Server Actions
+
+1. **Eliminated Separate API Layer**  
+   Reduced complexity by removing the need for dedicated REST endpoints.
+
+2. **End-to-End Type Safety**  
+   Shared TypeScript types between client and server without manual request/response contracts.
+
+3. **Smaller Client Bundle Size**  
+   Database logic stays on the server, preventing unnecessary client-side code bloat.
+
+4. **Improved Security**  
+   Sensitive logic and database access are never exposed to the browser.
+
+5. **Seamless React Integration**  
+   Works natively with React Server Components, Suspense, and streaming.
+
+6. **Built-in Caching & Revalidation**  
+   Leveraged `revalidatePath` and `revalidateTag` for automatic cache invalidation without external libraries. ( No need to add caching library like TQ )
+
+   ---
+
+## 🚀Robust Social System
+Implemented scalable friendship management ensuring data consistency and integrity using Prisma `$transaction`.
+
+```ts
+// friends.service.ts
+  return prisma.$transaction(async (tx) => {
+    const updated = await tx.friendRequest.update({
+      where: { id: requestId },
+      data: { status: "ACCEPTED", respondedAt: new Date() },
+      select: { id: true, status: true, respondedAt: true, fromUserId: true, toUserId: true },
+    });
+  ```
+  ---
+  
+## 🚀Enterprise-level Error Handling
+Integrated a centralized logging utility with **Sentry**, providing context-aware error tracking and i18n-ready, <br/>
+user-friendly error messages while securing sensitive stack traces in production.
+
+error message that developers see:
+```ts
+return json({ error: "UNAUTHORIZED" }, 401);
+```
+error message that users see:
+```ts
+  FRIEND_NOT_FOUND: {
+    ko: "아직 저희 서비스를 이용하지 않는 친구 같아요. 이 기회에 초대해 보는 건 어떨까요? 💌",
+    en: "It looks like your friend hasn't joined us yet. Why not invite them? 💌",
+  },
+```
+---
+
+### 🧠 Posture Detection Algorithm
+- Processed MediaPipe landmark coordinates
+- Calculated neck angle deviation based on shoulder–ear alignment
+- Applied threshold-based classification for forward head posture detection
+
+### 🖥 Frontend Architecture
+- Designed component-based UI structure in Next.js
+- Implemented real-time feedback system (visual + audio alerts)
+- Optimized rendering to handle continuous webcam input
+
+### ☁ Infrastructure Setup
+- Connected PostgreSQL (NeonDB) for persistent data storage
+- Structured measurement data schema for longitudinal tracking
+
+---
+
+## 🚀 Getting Started
+
 ```bash
-# Repository 클론
 git clone https://github.com/CapstoneDesign-KHU-2025/forward_head_posture_detect_application.git
 cd forward_head_posture_detect_application
-
-# 의존성 설치
 npm install
-
-# 개발 서버 실행
 npm run dev
 ```
 
----
-
-## 프로젝트 구조
-![](./project_structure.png)
-
----
-
-## 팀 구성 및 역할
-- 김가은(2021105055): AI, Backend
+## Team members and roles
+- GaeunKim: AI, Backend
 <br>[김가은 | kge0211114@gmail.com](mailto:kge0211114@gmail.com)
-- 남지민(2022110203): Frontend
+- Jimin Nam: Frontend
 <br>[남지민 | dnpsel2737@gmail.com](mailto:dnpsel2737@gmail.com)
-- 박승현(2022103410): Frontend(Three.js)
+- Seunghyun park: Frontend(Three.js)
 <br>[박승현 | seunghyuni00@khu.ac.kr](mailto:seunghyuni00@khu.ac.kr)
-- 허준(2019102242): AI
+- Jun Hur: AI
 <br>[허준 | heojun8500@naver.com](mailto:heojun8500@naver.com)
 
