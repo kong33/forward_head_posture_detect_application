@@ -12,12 +12,15 @@ without extra hardware.
 
 ---
 
+## 🧪 Scientific background
+
+Forwarded posture is diagnosed when the CVA(Craniovertebral Angle) 
+
 ## 🎯 Key Features
 
 - Real-time body landmark extraction using **MediaPipe Pose Landmarker**
 - Client-side posture analysis built with **Next.js**
 - 3D visualization of averaged posture using **Three.js**
-- Measurement data storage powered by **PostgreSQL (NeonDB)**
 
 ---
 
@@ -28,19 +31,38 @@ without extra hardware.
 | **Frontend** | Next.js, React, TypeScript, TailwindCSS |
 | **Pose Estimation** | MediaPipe Pose Landmarker |
 | **3D Visualization** | Three.js |
-| **Backend / DB** | Next.js, PostgreSQL (NeonDB) |
-| **Collaboration** | GitHub, Jira |
+| **Backend / DB** | Next.js, PostgreSQL (NeonDB), prisma |
+| **Collaboration** | GitHub, Jira, notion |
 
 🔗 Jira Board:  
 https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 
 ---
 
-## ⚙️ Core Implementation
+## Team members and roles
+- Gaeun Kim: AI, Backend Lead, Frontend
+<br>[김가은 | kge0211114@gmail.com](mailto:kge0211114@gmail.com)
+- Jimin Nam: Frontend Lead
+<br>[남지민 | dnpsel2737@gmail.com](mailto:dnpsel2737@gmail.com)
+- Seunghyun park: Frontend(Three.js)
+<br>[박승현 | seunghyuni00@khu.ac.kr](mailto:seunghyuni00@khu.ac.kr)
+- Jun Hur: AI Lead
+<br>[허준 | heojun8500@naver.com](mailto:heojun8500@naver.com)
+
+---
+# 📈 Optimization
+
+### LCP
+
+### INP
+
+### lightHouse
+
+### cpu usage
 
 # 🔐 Focusing on Security
 
-This project processes user health-related data.  
+This project processes user health-related data. We got a lot of feedbacks concerning about privacy problem.
 To minimize security risks and protect sensitive information, we implemented the following strategies:
 
 ---
@@ -54,47 +76,44 @@ This approach:
 - Reduces exposure to network-based interception (e.g., MITM attacks)
 - Minimizes unnecessary data transmission up to 90%
 - Limits server-side accumulation of sensitive health data
-- Enhances privacy by keeping raw measurement data on-device
 - Hardly being influcned by network disconnection.
 
 Only essential or aggregated data is persisted to the backend when necessary.
 
 ---
 
-### 2️⃣ Full-Stack Architecture with Next.js
+### 2️⃣ Full-Stack Architecture with Next.js - Server actions
 
 We adopted **Next.js as a full-stack framework** to unify frontend and backend logic within a single controlled environment.
 
 This provides:
 
 - Reduced attack surface by avoiding publicly exposed REST endpoints
-- Server-only execution of database logic
-- Clear separation between client and server components
-- Centralized routing and middleware handling
-- Easier enforcement of authentication and authorization rules
+- Sensitive logic never exposed to the client bundle
+- Strong type safety between client and server
 
 By consolidating the stack, we minimized configuration inconsistencies and improved maintainability.
 
 ---
 
-### 3️⃣ Server Actions & Zod Validation
-
-We utilized **Next.js Server Actions** to handle mutations securely on the server side.
-
-Benefits include:
-
-- Sensitive logic never exposed to the client bundle
-- Direct server execution without separate API endpoints
-- Strong type safety between client and server
-
-Additionally, we integrated **Zod schema validation** to:
+### 3️⃣ Zod Validation
 
 - Enforce strict input validation
 - Prevent malformed or malicious payloads
 - Ensure runtime data integrity beyond TypeScript's compile-time checks
 
+---
 
+### 4️⃣ Security Headers in Middleware
 
+This approach:
+
+- Protects against clickjacking with X-Frame-Options: DENY
+Prevents content-type sniffing attacks with X-Content-Type-Options: nosniff
+Reduces cross-origin referrer leakage with a strict referrer policy
+Restricts access to sensitive browser capabilities through Permissions-Policy
+
+This middleware-based approach made security rules easier to maintain and ensured they were applied uniformly across the application.
 
 ---
 # 🔒 Backend & API Architecture
@@ -217,13 +236,5 @@ npm install
 npm run dev
 ```
 
-## Team members and roles
-- GaeunKim: AI, Backend
-<br>[김가은 | kge0211114@gmail.com](mailto:kge0211114@gmail.com)
-- Jimin Nam: Frontend
-<br>[남지민 | dnpsel2737@gmail.com](mailto:dnpsel2737@gmail.com)
-- Seunghyun park: Frontend(Three.js)
-<br>[박승현 | seunghyuni00@khu.ac.kr](mailto:seunghyuni00@khu.ac.kr)
-- Jun Hur: AI
-<br>[허준 | heojun8500@naver.com](mailto:heojun8500@naver.com)
+
 
