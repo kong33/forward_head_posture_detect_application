@@ -1,0 +1,739 @@
+{
+  "Basic": {
+    "title": "부기부기",
+    "user": "사용자",
+    "description": "자세 측정/지표로 거북목 개선하기",
+    "usermenu": "사용자 메뉴"
+  },
+  "Characters": {
+    "remy": {
+      "name": "래미",
+      "description": "부드럽고 따뜻한\n친근한 캐릭터"
+    },
+    "jerry": {
+      "name": "제리",
+      "description": "활발하고 귀여운\n사랑스러운 캐릭터"
+    },
+    "jessica": {
+      "name": "제시카",
+      "description": "우아하고 세련된\n멋진 캐릭터"
+    },
+    "header": {
+      "title": "나만의 3D 캐릭터를 선택하세요!",
+      "description": "측정 중 화면에 표시될 캐릭터를 골라주세요"
+    },
+    "buttons": {
+      "skip": "건너뛰기",
+      "done": "선택 완료"
+    }
+  },
+  "Estimate": {
+    "buttons": {
+      "start": "측정 시작하기",
+      "stop": "오늘의 측정 중단하기"
+    },
+    "async": { "suspense": "측정을 시작해주세요!" },
+    "cameraTitle": "카메라"
+  },
+  "Login": {
+    "alt": {
+      "icon": "거북이"
+    },
+    "header": {
+      "title": "부기부기",
+      "description": "AI 자세 교정 프로그램"
+    },
+    "body": { "recommendation": "거북목 관리를 시작해보세요" }
+  },
+  "NotFound": {
+    "description": "페이지를 찾을 수 없어요",
+    "message": "거북이도 길을 잃었어요. 함께 돌아가요.",
+    "button": "홈으로 돌아가기"
+  },
+  "Calendar": {
+    "month": {
+      "1": "1월",
+      "2": "2월",
+      "3": "3월",
+      "4": "4월",
+      "5": "5월",
+      "6": "6월",
+      "7": "7월",
+      "8": "8월",
+      "9": "9월",
+      "10": "10월",
+      "11": "11월",
+      "12": "12월"
+    },
+    "day": {
+      "1": "일",
+      "2": "월",
+      "3": "화",
+      "4": "수",
+      "5": "목",
+      "6": "금",
+      "7": "토"
+    },
+    "buttons": {
+      "previous": "이전 달",
+      "next": "다음 달"
+    },
+    "good": "양호한 날",
+    "bad": "경고 많은 날"
+  },
+  "ErrorFallback": {
+    "title": "오류가 발생했습니다",
+    "message": "알 수 없는 오류가 발생했습니다.",
+    "button": "새로고침",
+    "tryAgain": "다시 시도"
+  },
+  "EstimatePanel": {
+    "cameraTitle": "카메라",
+    "message": "🐢\n측정이 준비됐어요!\n버튼을 눌러 시작해주세요",
+    "messageText": "측정이 준비됐어요!\n버튼을 눌러 시작해주세요",
+    "startMeasurementToast": "거북목 측정을 시작합니다"
+  },
+  "EvolutionTooltip": {
+    "ariaLabel": "진화 조건 안내"
+  },
+  "FloatingBar": {
+    "title": "측정 중",
+    "elapsedTime": "경과",
+    "stop": "중단"
+  },
+  "FriendsButton": {
+    "ariaLabel": "친구 관리"
+  },
+  "LoadingSkeleton": {
+    "message": "카메라를 켜고 있습니다...",
+    "description": "잠시만 기다려주세요",
+    "brand": "잠시만 기다려주세요!",
+    "sub": "바른 자세를 위한 첫 걸음 🌿"
+  },
+  "OauthButton": {
+    "google": "Google로 시작하기",
+    "github": "GitHub로 시작하기"
+  },
+  "RecoveryNotice": {
+    "message": "이전 측정이 중단됐어요",
+    "restart": "다시 시작할까요?",
+    "button": {
+      "yes": "다시 시작",
+      "no": "괜찮아요"
+    }
+  },
+  "SearchInput": {
+    "placeholder": "이메일로 친구를 검색해보세요..."
+  },
+  "TodayStatusCard": {
+    "first_empty": {
+      "title": "환영합니다!",
+      "message": "첫 측정을 시작해서\n건강한 자세 습관을 만들어보세요!"
+    },
+    "empty": { "title": "오늘도 화이팅!", "message": "오늘의 측정을 시작해서\n좋은 기록을 만들어보세요!" },
+    "excellent": { "title": "오늘은 최고예요!", "message": "목이 시원하시겠어요!" },
+    "normal": { "title": "조금만 더 신경 써볼까요?", "message": "목을 좀 펴주세요!" },
+    "bad": { "title": "오늘은 많이 힘드시겠어요", "message": "목을 쉬게 해주세요!" }
+  },
+  "TurtleEvolutionCard": {
+    "stages": {
+      "1st": "알에서 깬 거북이",
+      "2nd": "아기 거북이",
+      "3rd": "성인 거북이",
+      "4th": "거북왕"
+    },
+    "message": {
+      "next_stage": "다음 단계까지",
+      "day": "일 ",
+      "left": "남았어요!"
+    },
+    "header": {
+      "title": "거북이 진화",
+      "description": "경고 10회 이하인 날 10일마다 진화!"
+    }
+  },
+  "FriendList": {
+    "EmptyState": {
+      "message": "친구가 없어요. 검색에서 친구를 추가해보세요!"
+    },
+    "UserRow": {
+      "unknown": "알 수 없음"
+    },
+    "IconButton": {
+      "title": "친구 삭제"
+    }
+  },
+  "FriendsModal": {
+    "ModalHeader": {
+      "title": "친구 관리",
+      "subtitle": "친구와 함께 거북목 탈출!"
+    }
+  },
+  "IncomingRequestList": {
+    "SectionLabel": "받은 요청",
+    "EmptyState": {
+      "message": "받은 요청이 없어요"
+    },
+    "UserRow": {
+      "name": "알 수 없음"
+    },
+    "Button": {
+      "yes": "수락",
+      "no": "거절"
+    }
+  },
+  "ModalTabBar": {
+    "TabButton": {
+      "search": "검색",
+      "request": "요청",
+      "friend": "친구"
+    }
+  },
+  "OutgoingRequestList": {
+    "SectionLabel": "보낸 요청",
+    "EmptyState": {
+      "message": "보낸 요청이 없어요"
+    },
+    "UserRow": {
+      "name": "알 수 없음"
+    },
+    "Chip": "대기 중",
+
+    "Button": "취소"
+  },
+  "SearchResultList": {
+    "SectionLabel": "검색 결과",
+    "EmptyState": {
+      "message_find_friends": "이메일을 입력해서 친구를 찾아보세요",
+      "message_no_result": "일치하는 사용자를 찾을 수 없어요"
+    },
+    "UserRow": {
+      "name": "알 수 없음",
+      "actions_outgoing": "✓ 요청됨",
+      "actions_adding": "+ 추가"
+    }
+  },
+  "CharacterSelectionModal": {
+    "ModalHeader": {
+      "title": "캐릭터 변경",
+      "subtitle": "나를 대표할 캐릭터를 선택하세요"
+    },
+    "button": {
+      "close": "닫기",
+      "confirm": "확인"
+    }
+  },
+  "Posture3DCard": {
+    "title": "당신의 거북목 도전기",
+    "statusText": {
+      "good": "바른 자세 유지 중 👍",
+      "bad": "목을 쉬게 해주세요!",
+      "middle": "조금만 더 신경 써볼까요?"
+    },
+    "fivemins_average": "5분 단위 평균 목 각도"
+  },
+  "SensitivitySettingsModal": {
+    "sense_options": {
+      "low": { "name": "낮음", "description": "자세가 많이 틀어졌을 때만 알림" },
+      "normal": { "name": "보통", "description": "적당한 수준에서 알림 (권장)" },
+      "high": {
+        "name": "높음",
+        "description": "자세가 조금만 틀어져도 바로 알림"
+      }
+    },
+    "ModalHeader": {
+      "title": "민감도 설정",
+      "subtitle": "거북목 감지 민감도를 조절해보세요"
+    },
+    "button": {
+      "close": "닫기",
+      "confirm": "확인"
+    }
+  },
+  "WelcomeHero": {
+    "hello": "님, 안녕하세요!",
+    "title": "오늘도 바른 자세로 하루를 시작해봐요 🐢",
+    "button": "측정하기"
+  },
+  "Header": {
+    "login_button": "로그인",
+    "UserButton": {
+      "name": "사용자"
+    },
+    "navItems": {
+      "home": "홈",
+      "estimate": "측정하기"
+    }
+  },
+  "TempFooter": {
+    "feedback": "피드백 보내기 💬"
+  },
+
+  "HomeClient": {
+    "HomeData": {
+      "empty": {
+        "label": "아직 측정 기록이 없어요",
+        "value": "첫 측정을 시작해보세요!",
+        "caption": "웹캠 측정을 시작하면 오늘의 평균 목 각도가 여기 보여져요."
+      },
+      "kpi": {
+        "avgAngle": {
+          "label": "오늘 당신의 평균 목 각도는?",
+          "loading": "로딩 중...",
+          "caption": "최근 7일과 비교한 변화량"
+        },
+        "warningCount": {
+          "label": "오늘 거북목 경고 횟수",
+          "unit": "회",
+          "caption": "경고 횟수가 줄어들수록 좋아요!"
+        },
+        "measurementTime": {
+          "label": "측정 시간",
+          "emptyValue": "측정을 시작해보세요!"
+        },
+        "improvement": {
+          "label": "개선 정도"
+        }
+      },
+      "challenge": {
+        "emptyTitle": "첫 거북목 측정을 시작해볼까요?",
+        "title": "당신의 거북목 도전기",
+        "description": "측정을 시작하면 오늘의 평균 목 각도와 도전 현황이 여기에 표시됩니다.",
+        "cta": "도전 계속하기"
+      }
+    },
+    "improvementText": {
+      "lack_of_data": "데이터 부족",
+      "improve": "개선",
+      "worse": "악화"
+    }
+  },
+
+  "HomeTemplate": {
+    "sections": {
+      "todayStatus": "오늘의 거북목",
+      "measurement": "측정 섹션"
+    },
+    "kpi": {
+      "measureTime": {
+        "label": "측정 시간",
+        "defaultTime": "00:00",
+        "status": {
+          "measuring": "실시간 측정",
+          "measuring_long": "실시간 측정 중",
+          "idle": "측정 중 아님"
+        }
+      },
+      "todayWarning": {
+        "label": "오늘 경고",
+        "unit": "회",
+        "subtitle": "오늘 기준"
+      },
+      "cumulativeAvg": {
+        "label": "누적 평균",
+        "unit": "°",
+        "idealCompare": "ideal 대비"
+      }
+    },
+    "challenge": {
+      "defaultTitle": "당신의 거북목 도전기",
+      "defaultDescription": "측정을 시작하면 오늘의 평균 목 각도와\n도전 현황이 여기에 표시됩니다."
+    },
+    "statCards": {
+      "realTimeCard": {
+        "realTime": "실시간 측정",
+        "notEstimating": "측정 중 아님",
+        "estimatingTime": "측정 시간",
+        "estimating": "실시간 측정 중"
+      },
+      "warning": {
+        "todayWarning": "경고 횟수",
+        "time": "회",
+        "todayBenchMark": "오늘 기준"
+      },
+      "average": {
+        "accumulatedAverage": "누적 평균",
+        "differenceIdeal": "기준 각도 대비",
+        "differenceIdealDefault": "기준 각도 대비 +0.0°",
+        "unitEmpty": "°"
+      }
+    },
+    "posture3DCard": {
+      "yourChallenge": "당신의 거북목 도전기기",
+      "description": {
+        "1": "측정을 시작하면 오늘의 평균 목 각도와",
+        "2": "도전 현황이 여기에 표시됩니다."
+      }
+    }
+  },
+
+  "Landing": {
+    "hero": {
+      "title_line1": "거북목, 이제",
+      "title_highlight": "AI가 관리",
+      "title_line2": "해드립니다",
+      "description": "웹캠 하나로 실시간 자세 측정부터 통계 관리까지.\n건강한 자세를 위한 가장 쉬운 방법을 경험하세요.",
+      "buttons": {
+        "start": "시작하기",
+        "more": "더 알아보기"
+      }
+    },
+    "problem": {
+      "title": "현대인의 건강은 잦은 컴퓨터 사용으로\n위협받고 있어요",
+      "question": "어떻게 하면 업무를 하는 동안\n올바른 자세를 유지할 수 있을까?",
+      "metrics": {
+        "usage": {
+          "title": "5시간+",
+          "desc": "하루 평균 컴퓨터 사용 시간",
+          "source": "출처 | 방송통신위원회의 스마트폰∙PC 이용 행태 조사"
+        },
+        "prevalence": {
+          "title": "70%",
+          "desc": "현대인 거북목 유병률",
+          "source": "출처 | 질병관리청"
+        },
+        "burden": {
+          "title": "15kg+",
+          "desc": "잘못된 자세로 인한 목 부담",
+          "source": "출처 | 질병관리청"
+        }
+      }
+    },
+    "features": {
+      "title": "거북목 거북거북!이 해결해드립니다",
+      "items": {
+        "webcam": {
+          "title": "웹캠만 있으면 OK",
+          "desc": "별도의 장비나 측면 카메라 없이 정면 웹캠만으로 실시간 자세 측정이 가능합니다."
+        },
+        "ai": {
+          "title": "AI 실시간 분석",
+          "desc": "MediaPipe AI 기술로 33개 신체 랜드마크를 추적하여 정확한 거북목 판정을 제공합니다."
+        },
+        "stats": {
+          "title": "통계 기반 관리",
+          "desc": "거북목 자세 감지 시 소리와 알림으로 즉시 알려드려 바른 자세를 유지하도록 돕습니다."
+        },
+        "alert": {
+          "title": "즉각적인 알림",
+          "desc": "매일, 매주 평균 목 각도를 분석하여 자세 변화 추이를 한눈에 확인할 수 있습니다."
+        },
+        "privacy": {
+          "title": "개인정보 보호",
+          "desc": "클라이언트 사이드 AI 처리로 영상 데이터가 서버로 전송되지 않아 안전합니다."
+        },
+        "platform": {
+          "title": "플랫폼 독립적",
+          "desc": "브라우저만 있으면 언제 어디서나 사용 가능한 웹 기반 솔루션입니다."
+        }
+      }
+    },
+    "cta": {
+      "title": "지금 바로 시작하세요",
+      "description": "GitHub 또는 Google 계정으로 바로 시작할 수 있습니다",
+      "button": "시작하기"
+    }
+  },
+
+  "Friends": {
+    "Messages": {
+      "loadError": "친구 데이터를 불러오지 못했어요. 잠시 후 다시 시도해주세요.",
+      "searchError": "사용자 검색에 실패했어요. 잠시 후 다시 시도해주세요.",
+      "searchProblem": "사용자 검색 중 문제가 발생했어요. 잠시 후 다시 시도해주세요.",
+      "sendRequestSuccess": "님께 친구 요청을 보냈어요! 🐢",
+      "sendRequestError": "친구 요청을 보내지 못했어요.",
+      "sendRequestProblem": "친구 요청 중 문제가 발생했어요. 잠시 후 다시 시도해주세요.",
+      "cancelSuccess": "님께 보낸 요청을 취소했어요",
+      "cancelError": "친구 요청을 취소하지 못했어요.",
+      "cancelProblem": "친구 요청을 취소하는 중 문제가 발생했어요. 잠시 후 다시 시도해주세요.",
+      "acceptSuccess": "님과 친구가 됐어요! 🎉",
+      "acceptError": "친구 요청 수락에 실패했어요.",
+      "acceptProblem": "친구 요청을 수락하는 중 문제가 발생했어요. 잠시 후 다시 시도해주세요.",
+      "declineSuccess": "요청을 거절했어요",
+      "declineError": "친구 요청 거절에 실패했어요.",
+      "declineProblem": "친구 요청을 거절하는 중 문제가 발생했어요. 잠시 후 다시 시도해주세요.",
+      "deleteSuccess": "님을 친구 목록에서 삭제했어요",
+      "deleteError": "친구 삭제에 실패했어요.",
+      "deleteProblem": "친구를 삭제하는 중 문제가 발생했어요. 잠시 후 다시 시도해주세요.",
+      "defaultName": "친구"
+    }
+  },
+  "Measurement": {
+    "Guide": {
+      "initial": "가이드라인에 맞춰주세요",
+      "tooClose": "너무 가까워요",
+      "tooFar": "너무 멀어요",
+      "good": "좋아요!",
+      "keepPose": "초 유지하세요"
+    },
+    "Status": {
+      "measuring": "측정 중",
+      "warning": "목을 뒤로 당겨주세요!",
+      "good": "바른 자세 유지 중",
+      "stopped": "측정이 중단되었습니다"
+    },
+    "Toast": {
+      "started": "거북목 측정을 시작합니다"
+    },
+    "Error": {
+      "cameraInit": "카메라 초기화 중 오류가 발생했습니다.",
+      "noUser": "사용자 정보가 없습니다."
+    }
+  },
+  "useTurtleNeckTracker": {
+    "distanceMessage": {
+      "close": "너무 가깝습니다. 뒤로 물러나세요.",
+      "far": "너무 멉니다. 앞으로 이동하세요.",
+      "good": "적절한 거리입니다."
+    }
+  },
+  "getStatusBanner": {
+    "stopEstimating": "대기중",
+    "badPosture": "거북목 자세입니다!",
+    "guideMessage": "바른 자세입니다!"
+  },
+  "useMenuDropdown": {
+    "menu": {
+      "sensitivity": "민감도 설정",
+      "change_character": "캐릭터 변경",
+      "logout": "로그아웃"
+    }
+  },
+  "login": {
+    "description": "AI 자세 교정 프로그램",
+    "startEasily": "간편하게 시작하기",
+    "policy": {
+      "whenLogin": "로그인 시",
+      "policy": "이용약관",
+      "and": "및",
+      "datapolicy": "개인정보처리방침",
+      "agree": "에 동의하는 것으로 간주됩니다."
+    }
+  },
+
+  "landing": {
+    "features": {
+      "title": {
+        "1": "거북목 탈출을 위한",
+        "2": "모든 것"
+      },
+      "description": "측정부터 분석, 게임화까지 — 바른 자세를 재미있게 만들어요.",
+      "features": [
+        {
+          "title": "웹캠만 있으면 OK",
+          "description": "별도의 장비나 측면 카메라 없이 정면 웹캠만으로 실시간 자세 측정이 가능합니다."
+        },
+        {
+          "title": "AI 실시간 분석",
+          "description": "MediaPipe AI 기술로 신체 랜드마크를 추적하여 정확한 거북목 판정을 제공합니다."
+        },
+        {
+          "title": "통계 기반 관리",
+          "description": "거북목 자세 감지 시 소리와 알림으로 즉시 알려드려 바른 자세를 유지하도록 돕습니다."
+        },
+        {
+          "title": "즉각적인 알림",
+          "description": "매일, 매주 평균 목 각도를 분석하여 자세 변화 추이를 한눈에 확인할 수 있습니다."
+        },
+        {
+          "title": "개인정보 보호",
+          "description": "클라이언트 사이드 AI 처리로 영상 데이터가 서버로 전송되지 않아 안전합니다."
+        },
+        {
+          "title": "플랫폼 독립적",
+          "description": "브라우저만 있으면 언제 어디서나 사용 가능한 웹 기반 솔루션입니다."
+        }
+      ]
+    },
+    "hero": {
+      "title": {
+        "1": "거북목, 이제",
+        "2": "AI로 관리하세요"
+      },
+      "description": {
+        "1": "카메라 한 대로 충분해요.",
+        "2": " 실시간으로 자세를 감지하고, 거북목이 되는 순간 바로 알려드려요."
+      },
+      "buttons": {
+        "start": "시작하기",
+        "howItWorks": "어떻게 작동하나요"
+      }
+    },
+    "problem": {
+      "title": { "1": "현대인의 건강은 잦은 컴퓨터 사용으로", "2": "위협받고 있어요" }
+    },
+    "description": { "1": "어떻게 하면 업무를 하는 동안", "2": "올바른 자세를 유지할 수 있을까?" },
+
+    "proof": [
+      {
+        "num": "5시간+",
+        "label": "하루 평균 컴퓨터 사용 시간",
+        "source": "출처 | 방송통신위원회의 스마트폰·PC\n이용 행태 조사"
+      },
+      {
+        "num": "70%",
+        "label": "현대인 거북목 유병률",
+        "source": "출처 | 질병관리청"
+      },
+      { "num": "15kg+", "label": "잘못된 자세로 인한 목 부담", "source": "출처 | 질병관리청" }
+    ],
+    "mockup": {
+      "title": {
+        "1": "깔끔하고",
+        "2": "직관적인 대시보드"
+      },
+      "description": "복잡하지 않아요. 열면 바로 오늘의 자세 상태를 확인할 수 있어요.",
+      "mockups": [
+        {
+          "title": "오늘의 목 상태 한눈에",
+          "description": "측정 시간, 경고 횟수, 평균 각도를 카드로 확인"
+        },
+        {
+          "title": "3D 캐릭터로 시각화",
+          "description": "내 목각도에 맞춰 캐릭터 자세가 실시간으로 반영"
+        },
+        {
+          "title": "거북이 진화 현황",
+          "description": "좋은 자세를 유지할수록 거북이가 성장"
+        }
+      ]
+    },
+    "howItWorks": {
+      "title": "3단계면 충분해요",
+      "description": "측정하기 버튼을 누르면\n웹캠이 자동으로 활성화돼요.",
+      "workLists": [
+        {
+          "title": "카메라 켜기",
+          "description": "거북목 자세 감지 시 소리와 알림으로 즉시 알려드려 바른 자세를 유지하도록 돕습니다."
+        },
+        {
+          "title": "AI가 분석해요",
+          "description": "MediaPipe AI가 실시간으로\n목 각도를 측정하고 기록해요."
+        },
+        {
+          "title": "결과 확인",
+          "description": "거북목 자세 감지 시 소리와 알림으로 즉시 알려드려 바른 자세를 유지하도록 돕습니다."
+        }
+      ]
+    },
+    "cta": {
+      "title": "지금 바로 시작해보세요",
+      "description": "거북목 걱정 없는 하루를 만들어드릴게요."
+    },
+    "button": "시작하기"
+  },
+  "DashboardMockupCard": {
+    "title": "부기님, 안녕하세요!",
+    "subTitle": "오늘도 바른 자세로 하루를 시작해봐요",
+    "estimatingTime": "측정 시간",
+    "todayAlert": "오늘 경고",
+    "mockNumber": "3회",
+    "neckAnglePerHour": "시간대별 목 각도"
+  },
+  "Footer": {
+    "labels": {
+      "terms": "서비스 약관",
+      "privacy": "개인정보처리방침",
+      "contact": "문의하기"
+    }
+  },
+  "PrivacyPolicyPage": {
+    "title": "개인정보처리방침",
+    "startDate": "시행일자: 2026년 3월 12일",
+    "policy": {
+      "1": "1. 수집하는 개인정보 항목",
+      "2": "2. 카메라 및 영상 데이터 처리",
+      "3": "3. 개인정보의 이용 목적",
+      "4": "4. 개인정보의 파기",
+      "5": "5. 문의처"
+    },
+    "description": {
+      "fst": {
+        "title": "본 서비스는 원활한 서비스 제공을 위해 아래와 같은 최소한의 개인정보를 수집하고 있습니다.",
+        "list": [
+          {
+            "label": "Google 로그인 시",
+            "text": "이메일 주소 (OAuth 인증 및 회원 식별 용도)"
+          },
+          {
+            "label": "서비스 이용 시",
+            "text": "서비스 이용 기록, 접속 로그"
+          }
+        ]
+      },
+      "snd": {
+        "title": "본 서비스는 사용자의 실시간 거북목 자세 감지 및 각도 측정을 위해 기기의 카메라 접근 권한을 요청합니다. 이에 대한 데이터 처리 방침은 다음과 같습니다.",
+        "list": [
+          {
+            "label": "로컬 처리",
+            "text": "카메라를 통해 입력된 영상 데이터는 오직 사용자의 브라우저(로컬 환경), 즉 사용자의 컴퓨터터 내에서만 실시간으로 분석됩니다."
+          },
+          {
+            "label": "비저장 원칙",
+            "text": "영상 데이터는 어떠한 경우에도 외부 서버(DB)로 전송되거나 저장되지 않습니다."
+          }
+        ]
+      },
+      "3": {
+        "text": "수집된 개인정보는 사용자의 계정 관리, 원활한 서비스 제공 및 기능 개선을 위한 통계적 분석 목적으로만 활용됩니다."
+      },
+      "4": {
+        "text": "사용자가 회원 탈퇴를 요청하거나 개인정보 수집 및 이용 목적이 달성된 경우, 해당 정보는 지체 없이 파기됩니다. 데이터베이스에 저장된 식별 정보는 복구 불가능한 방법으로 영구 삭제됩니다."
+      },
+      "5": {
+        "text": "개인정보처리방침과 관련된 문의사항이 있으신 경우, 아래 이메일로 연락해 주시기 바랍니다."
+      }
+    }
+  },
+  "TermsOfServicePage": {
+    "title": "서비스 이용약관",
+    "startDate": "시행일자: 2026년 3월 12일",
+    "policy": {
+      "1": "1. 목적",
+      "2": "2. 서비스의 내용 및 변경",
+      "3": "3. 의료적 조언에 대한 면책 (중요)",
+      "4": "4. 사용자의 의무",
+      "5": "5. 책임 제한"
+    },
+    "description": {
+      "1": {
+        "text": "본 약관은 '거북거북 거북목' 서비스(이하 '서비스')의 이용 조건, 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다."
+      },
+      "2": {
+        "text": "본 서비스는 기기의 카메라를 활용하여 사용자의 자세를 실시간으로 분석하고 거북목 여부를 판별하여 피드백을 제공하는 기능을 포함합니다. 서비스의 기능은 성능 개선이나 운영상의 필요에 따라 사전 공지 없이 변경되거나 중단될 수 있습니다."
+      },
+      "3": {
+        "title": "본 서비스에서 제공하는 자세 분석 및 피드백은 AI 모델(Pose Estimation)에 기반한 참고용 정보입니다.",
+        "list": {
+          "1": {
+            "label": "비의료 기기",
+            "text": "본 서비스는 전문적인 의학적 진단, 예방, 치료를 목적으로 하는 의료 기기가 아닙니다."
+          },
+          "2": {
+            "label": "전문의 상담",
+            "text": "자세로 인한 통증이나 건강상의 문제가 발생할 경우, 서비스 결과에 의존하지 말고 반드시 전문 의료진과 상담해야 합니다."
+          }
+        }
+      },
+      "4": {
+        "text": "사용자는 타인의 이메일 등 개인정보를 도용하여 서비스를 이용해서는 안 되며, 서비스 이용 과정에서 타인의 초상권을 침해하는 방식으로 카메라 기능을 사용해서는 안 됩니다."
+      },
+      "5": {
+        "text": "본 서비스는 무료로 제공되며, AI 모델의 분석 결과에 대해 100% 정확성을 보증하지 않습니다. 서비스 이용으로 인해 발생하는 직·간접적인 손해나 데이터 손실에 대해서는 법적으로 허용되는 최대 한도 내에서 책임을 지지 않습니다."
+      }
+    }
+  },
+  "ContactPage": {
+    "title": "문의 및 피드백",
+    "description": "'부기부기' 서비스를 이용해 주셔서 감사합니다! 서비스 이용 중 궁금한 점이 있거나 피드백을 남기고 싶으시다면 아래 방법으로 연락해 주세요.",
+    "email": {
+      "title": "이메일 문의",
+      "address": "kge0211114@gmail.com"
+    },
+    "feedback": {
+      "title": "피드백 보내기",
+      "text": "더 나은 서비스를 위해 의견을 남겨주세요.",
+      "linkText": "피드백 작성하러 가기 ➔"
+    }
+  }
+}
