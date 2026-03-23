@@ -180,7 +180,7 @@ providing an instant camera feed to users while the model downloads in the backg
 </table>
 
 ### 💻cpu usage 
-#### estimate page - Reduced OS CPU 52% / Reduced browser CPU 63%
+#### estimate page - Reduced Computer CPU 52% / Reduced browser CPU 63%
 - Dynamic FPS Throttling: Leveraged the Page Visibility API (document.hidden) to dynamically reduce the measurement polling rate <br/>
 (e.g., 10fps down to 5fps) when the tab is inactive, significantly optimizing CPU usage and battery consumption.
 
