@@ -5,7 +5,7 @@
 - [📌 Overview](#-overview)
 - [👉 Why do you need BoogiBoogi?](#-why-do-you-need-boogiboogi)
 - [🧪 Scientific Background](#-scientific-background)
-- [👩🏻‍💻 How was the detection threshold set?](#how-was-the-detection-threshold-set)
+- [📋 How was the detection threshold set?](#detection-threshold)
 - [📊 Detection Sensitivity Levels](#-detection-sensitivity-levels)
 - [🛠 Tech Stack](#-tech-stack)
 - [🧑‍🤝‍🧑 Team members and roles](#team-members-and-roles)
@@ -14,7 +14,6 @@
   - [🔐 Focusing on Security](#-focusing-on-security)
   - [👾 Backend & API Architecture](#-backend--api-architecture)
 
----
 ---
 ## 📌 Overview
 
@@ -85,8 +84,8 @@ It is generally defined as the angle formed between:
 [Source](https://www.researchgate.net/figure/Measurement-of-craniovertebral-angle-with-the-CAV_fig1_284018894)
 
 ---
-
-## 👩🏻‍💻 How was the detection threshold set?
+<a id="detection-threshold"></a>
+## 📋 How was the detection threshold set?
 
 A recent study published in **2024** classified **severe forward head posture** as a CVA below **45°**.
 
