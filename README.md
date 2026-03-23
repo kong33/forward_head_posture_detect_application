@@ -154,20 +154,64 @@ https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 # 📈 Optimization
 
 ### ⚡LCP
-#### estimate page
-- Parallelized AI & Camera Loading: Eliminated waterfall loading bottlenecks by executing `PoseLandmarker.createFromOptions` (MediaPipe AI) and `navigator.mediaDevices.getUserMedia` (Camera API) asynchronously in parallel.
-- Unblocked UI Rendering: Seperated the `CanvasRenderingContext2D.drawImage` logic from the AI worker's readiness, providing an instant camera feed to users while the model downloads in the background.
+#### home page - Reduced 45% 
+- Parallelized AI & Camera Loading: Eliminated waterfall loading bottlenecks by executing <br/>
+`PoseLandmarker.createFromOptions` (MediaPipe AI) and `navigator.mediaDevices.getUserMedia` (Camera API) asynchronously in parallel.
+- Unblocked UI Rendering: Seperated the `CanvasRenderingContext2D.drawImage` logic from the AI worker's readiness, <br/>
+providing an instant camera feed to users while the model downloads in the background.
+  
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/7aa1690b-3ad6-4bea-8093-cfa6bdbbb4da" width="420" alt="Before optimization" />
+    </td>
+    <td align="center" style="font-size: 28px; font-weight: bold; padding: 0 10px;">
+      =&gt;
+    </td>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/ede962a5-4ceb-453c-8eec-5209084299c2" width="420" alt="After optimization" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Before</sub></td>
+    <td></td>
+    <td align="center"><sub>After</sub></td>
+  </tr>
+</table>
+
+### 💻cpu usage - Reduced 52%
+- Dynamic FPS Throttling: Leveraged the Page Visibility API (document.hidden) to dynamically reduce the measurement polling rate <br/>
+(e.g., 10fps down to 5fps) when the tab is inactive, significantly optimizing CPU usage and battery consumption.
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="https://github.com/user-attachments/assets/d39f05a2-9ad2-4652-8b79-39d6a93e5f34"  width="420" alt="Before optimization" />
+    </td>
+    <td align="center" style="font-size: 28px; font-weight: bold; padding: 0 10px;">
+      =&gt;
+    </td>
+    <td align="center">
+      <img  src="https://github.com/user-attachments/assets/13dfb8b7-02ed-45dc-bc5a-b6f766f08110"  width="420" alt="After optimization" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Before</sub></td>
+    <td></td>
+    <td align="center"><sub>After</sub></td>
+  </tr>
+</table>
+
 
 ### 🖱️INP
-- Web Worker Architecture (`poseDetection.worker.ts`): Offloaded heavy landmark computations to a background thread. Utilized `createImageBitmap` to transfer video frames efficiently, preventing main thread blocking.
+- Web Worker Architecture (`poseDetection.worker.ts`): Offloaded heavy landmark computations to a background thread. <br/>
+Utilized `createImageBitmap` to transfer video frames efficiently, preventing main thread blocking.
 
 ### ❇️lightHouse
-- Memory Leak Prevention: Enforced strict useEffect cleanups in Estimate.tsx to reliably execute `worker.terminate()`, `PiP window.close()`, and `MediaStreamTrack.stop()` upon component unmount.
+- Memory Leak Prevention: Enforced strict useEffect cleanups in Estimate.tsx to reliably execute <br/>
+`worker.terminate()`, `PiP window.close()`, and `MediaStreamTrack.stop()` upon component unmount.
 
-### 💻cpu usage
-- Dynamic FPS Throttling: Leveraged the Page Visibility API (document.hidden) to dynamically reduce the measurement polling rate (e.g., 10fps down to 5fps) when the tab is inactive, significantly optimizing CPU usage and battery consumption.
 
-- Efficient Event Delegation: Implemented robust click-outside detection using useRef and mousedown events in popover components like HelpPopUp.tsx, ensuring safe modal control without event bubbling conflicts.
 ---
 # 🔐 Focusing on Security
 
