@@ -33,7 +33,8 @@ Plus, no video or photo data of the user is serving to server for the privacy!
 - Designed component-based UI structure in Next.js
 - Implemented real-time feedback system (visual + audio alerts)
 - Optimized rendering to handle continuous webcam input
-- 
+- Designed a type-safe backend API layer using Next.js Server Actions and Zod validation
+- Integrated PostgreSQL (NeonDB) via Prisma ORM for scalable data management and secure transactions
 
 ### ☁ Infrastructure Setup
 - Connected PostgreSQL (NeonDB) for data storage
