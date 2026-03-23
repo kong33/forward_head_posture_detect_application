@@ -1,4 +1,5 @@
 # 🐢Boogi Boogi: AI based Forward Head Posture Detection Web Application
+- you can see my working flow (pr, review ...) from the original [organization repository](https://github.com/CapstoneDesign-KHU-2025/forward_head_posture_detect_application)!
 ---
 
 ## 📑 Table of Contents
