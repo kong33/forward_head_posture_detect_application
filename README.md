@@ -1,26 +1,123 @@
-# 🧍 Forward Head Posture Detection Web Application
+# 🐢Boogi Boogi: AI based Forward Head Posture Detection Web Application
+---
 
+## 📑 Table of Contents
+- [📌 Overview](#-overview)
+- [👉 Why do you need BoogiBoogi?](#-why-do-you-need-boogiboogi)
+- [🧪 Scientific Background](#-scientific-background)
+- [👩🏻‍💻 How was the detection threshold set?](#how-was-the-detection-threshold-set)
+- [📊 Detection Sensitivity Levels](#-detection-sensitivity-levels)
+- [🛠 Tech Stack](#-tech-stack)
+- [🧑‍🤝‍🧑 Team members and roles](#team-members-and-roles)
+- [💻 My contribution](#my-contribution)
+  - [📈 Optimization](#-optimization)
+  - [🔐 Focusing on Security](#-focusing-on-security)
+  - [👾 Backend & API Architecture](#-backend--api-architecture)
 
+---
+---
 ## 📌 Overview
 
-Traditional posture correction systems rely on side-angle camera setups, <br/>
-requiring no additional devices or physical space adjustments.
+Most web-based posture correction systems rely on a **side-view camera setup**, which often requires additional space or inconvenient camera placement.
 
-This web application estimates forward head posture using only a **front-facing webcam**,<br/>
-allowing users to measure posture seamlessly during everyday computer use —
-without extra hardware.
+This application estimates forward head posture using only a **front-facing webcam**, <br/>
+allowing users to measure posture naturally during everyday computer use without extra hardware or environmental adjustments.<br/>
+Plus, no video or photo data of the user is serving to server for the privacy!
+
+---
+### 🧠 Posture Detection Algorithm
+- Processed MediaPipe landmark coordinates
+- Calculated neck angle deviation based on shoulder–ear alignment
+- Applied threshold-based classification for forward head posture detection
+
+### 🖥 Architecture
+- Designed component-based UI structure in Next.js
+- Implemented real-time feedback system (visual + audio alerts)
+- Optimized rendering to handle continuous webcam input
+- 
+
+### ☁ Infrastructure Setup
+- Connected PostgreSQL (NeonDB) for data storage
+- Released with Vercel.
+---
+## 👉 Why do you need **BoogiBoogi**?
+
+Have you seen this woman?
+
+<img width="616" height="346" alt="image" src="https://github.com/user-attachments/assets/4f1cbb75-8d36-45f9-9fc9-090ba5cc51be" />
+[source](https://www.chosun.com/national/welfare-medical/2021/07/17/25SRDOHGPFH5TBEL4FFE5KKDO4/)
+
+This image was created by British behavioral futurist **William Higham**, <br/>
+which explored how the body of an office worker might change after **20 years of desk-based work**.
+
+It shows how long hours of office work and poor posture can gradually affect the human body. <br/>
+Today, posture-related problems are becoming increasingly common among modern workers.
+
+According to the **Korea Disease Control and Prevention Agency (KDCA)**, <br/>
+forward head posture is reported in more than **70% of adults aged 25 to 42**.
+
+[Source](https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5972)
+
+For this reason, there is a clear need for a tool that helps users monitor and improve their posture easily during everyday work.
+
 
 ---
 
-## 🧪 Scientific background
+## 🧪 Scientific Background
 
-Forwarded posture is diagnosed when the CVA(Craniovertebral Angle) 
+**Forward head posture (FHP)** is commonly assessed using the **craniovertebral angle (CVA)**.
 
-## 🎯 Key Features
+In many clinical studies, FHP is identified when the CVA falls below approximately **45° to 50°**. <br/>
+One of the early studies frequently referenced for this range is:
 
-- Real-time body landmark extraction using **MediaPipe Pose Landmarker**
-- Client-side posture analysis built with **Next.js**
-- 3D visualization of averaged posture using **Three.js**
+[Reference](https://pubmed.ncbi.nlm.nih.gov/17368075/)
+
+### 🧐 What is CVA?
+
+The **craniovertebral angle (CVA)** is a widely used measurement for evaluating forward head posture. <br/>
+It is generally defined as the angle formed between:
+
+- a horizontal line through the **C7 vertebra**
+- a line connecting **C7** to the **tragus of the ear**
+
+<img width="331" height="260" alt="image" src="https://github.com/user-attachments/assets/f6af6a15-ec3c-4b76-b444-c7698179dc70" />
+
+[Source](https://www.researchgate.net/figure/Measurement-of-craniovertebral-angle-with-the-CAV_fig1_284018894)
+
+---
+
+## 👩🏻‍💻 How was the detection threshold set?
+
+A recent study published in **2024** classified **severe forward head posture** as a CVA below **45°**.
+
+The same study also reported that CVA tends to be measured **lower in the sitting position than in the standing position**, <br/>
+regardless of whether the participant has forward head posture.
+
+Since this application is mainly intended for users who are **sitting at a desk**,<br/>
+this difference was considered when setting the detection thresholds.
+
+[Reference](https://pubmed.ncbi.nlm.nih.gov/38665167/) Evaluation of the Craniovertebral Angle in Standing versus Sitting Positions in Young Adults with and without Severe Forward Head Posture
+David A. Titcomb et al. / January 2024  
+
+
+---
+
+## 📊 Detection Sensitivity Levels
+
+This application provides three posture sensitivity levels <br/>
+so that users can choose how strictly posture changes should be monitored:
+
+- **Low**: **45°**
+- **Middle**: **48°**
+- **High**: **50°**
+
+### Why these values?
+
+- **45°** was used for **Low**, based on the threshold used in the paper for **severe forward head posture**
+- **48°** was used for **Middle** as a more moderate threshold for everyday monitoring
+- **50°** was used for **High** because many studies treat angles above **50°** as being within a normal posture range
+
+This allows the application to support different levels of detection sensitivity depending on the user's preference.
 
 ---
 
@@ -50,16 +147,27 @@ https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 <br>[허준 | heojun8500@naver.com](mailto:heojun8500@naver.com)
 
 ---
+
+# My contribution 
+---
 # 📈 Optimization
 
-### LCP
+### ⚡LCP
+#### estimate page
+- Parallelized AI & Camera Loading: Eliminated waterfall loading bottlenecks by executing `PoseLandmarker.createFromOptions` (MediaPipe AI) and `navigator.mediaDevices.getUserMedia` (Camera API) asynchronously in parallel.
+- Unblocked UI Rendering: Seperated the `CanvasRenderingContext2D.drawImage` logic from the AI worker's readiness, providing an instant camera feed to users while the model downloads in the background.
 
-### INP
+### 🖱️INP
+- Web Worker Architecture (`poseDetection.worker.ts`): Offloaded heavy landmark computations to a background thread. Utilized `createImageBitmap` to transfer video frames efficiently, preventing main thread blocking.
 
-### lightHouse
+### ❇️lightHouse
+- Memory Leak Prevention: Enforced strict useEffect cleanups in Estimate.tsx to reliably execute `worker.terminate()`, `PiP window.close()`, and `MediaStreamTrack.stop()` upon component unmount.
 
-### cpu usage
+### 💻cpu usage
+- Dynamic FPS Throttling: Leveraged the Page Visibility API (document.hidden) to dynamically reduce the measurement polling rate (e.g., 10fps down to 5fps) when the tab is inactive, significantly optimizing CPU usage and battery consumption.
 
+- Efficient Event Delegation: Implemented robust click-outside detection using useRef and mousedown events in popover components like HelpPopUp.tsx, ensuring safe modal control without event bubbling conflicts.
+---
 # 🔐 Focusing on Security
 
 This project processes user health-related data. We got a lot of feedbacks concerning about privacy problem.
@@ -108,15 +216,15 @@ By consolidating the stack, we minimized configuration inconsistencies and impro
 
 This approach:
 
-- Protects against clickjacking with X-Frame-Options: DENY
-Prevents content-type sniffing attacks with X-Content-Type-Options: nosniff
-Reduces cross-origin referrer leakage with a strict referrer policy
-Restricts access to sensitive browser capabilities through Permissions-Policy
+- Protects against clickjacking with `X-Frame-Options: DENY`
+- Prevents content-type sniffing attacks with `X-Content-Type-Options: nosniff`
+- Reduces cross-origin referrer leakage with a `strict referrer policy`
+- Restricts access to sensitive browser capabilities through `Permissions-Policy`
 
 This middleware-based approach made security rules easier to maintain and ensured they were applied uniformly across the application.
 
 ---
-# 🔒 Backend & API Architecture
+# 👾 Backend & API Architecture
 
 ## 🚀Type-Safe API Layer
 Constructed robust APIs using Next.js Server Actions, strictly validating client payloads via **Zod** to ensure runtime safety.
@@ -211,30 +319,7 @@ error message that users see:
 ```
 ---
 
-### 🧠 Posture Detection Algorithm
-- Processed MediaPipe landmark coordinates
-- Calculated neck angle deviation based on shoulder–ear alignment
-- Applied threshold-based classification for forward head posture detection
-
-### 🖥 Frontend Architecture
-- Designed component-based UI structure in Next.js
-- Implemented real-time feedback system (visual + audio alerts)
-- Optimized rendering to handle continuous webcam input
-
-### ☁ Infrastructure Setup
-- Connected PostgreSQL (NeonDB) for persistent data storage
-- Structured measurement data schema for longitudinal tracking
-
+### 🍀Thanks for reading! 
+## 🌝 We are waiting for the contribution!! Every feedback is welcomed !!
+[feedback link](https://docs.google.com/forms/d/e/1FAIpQLSeRNoOKH3aNfmu0_JMZFy6Vslur6jfBuNlrj-5-Cekjen9wpw/viewform?usp=dialog)
 ---
-
-## 🚀 Getting Started
-
-```bash
-git clone https://github.com/CapstoneDesign-KHU-2025/forward_head_posture_detect_application.git
-cd forward_head_posture_detect_application
-npm install
-npm run dev
-```
-
-
-
