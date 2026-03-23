@@ -179,7 +179,8 @@ providing an instant camera feed to users while the model downloads in the backg
   </tr>
 </table>
 
-### 💻cpu usage - Reduced 52%
+### 💻cpu usage 
+#### estimate page - Reduced OS CPU 52% / Reduced browser CPU 63%
 - Dynamic FPS Throttling: Leveraged the Page Visibility API (document.hidden) to dynamically reduce the measurement polling rate <br/>
 (e.g., 10fps down to 5fps) when the tab is inactive, significantly optimizing CPU usage and battery consumption.
 
@@ -202,6 +203,24 @@ providing an instant camera feed to users while the model downloads in the backg
   </tr>
 </table>
 
+<table align="center">
+  <tr>
+    <td align="center">
+      <img  src="https://github.com/user-attachments/assets/2f07665d-5ccf-4e54-a46a-0b3eeb85fb12"   width="420" alt="Before optimization" />
+    </td>
+    <td align="center" style="font-size: 28px; font-weight: bold; padding: 0 10px;">
+      =&gt;
+    </td>
+    <td align="center">
+      <img   src="https://github.com/user-attachments/assets/b59213e1-1879-4d41-a88d-326800d2cc51"  width="420" alt="After optimization" />
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Before</sub></td>
+    <td></td>
+    <td align="center"><sub>After</sub></td>
+  </tr>
+</table>
 
 ### 🖱️INP
 - Web Worker Architecture (`poseDetection.worker.ts`): Offloaded heavy landmark computations to a background thread. <br/>
