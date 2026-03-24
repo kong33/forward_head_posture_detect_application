@@ -45,7 +45,7 @@ Plus, no video or photo data of the user is serving to server for the privacy!
 
 Have you seen this woman?
 
-<img width="616" height="346" alt="image" src="https://github.com/user-attachments/assets/4f1cbb75-8d36-45f9-9fc9-090ba5cc51be" />
+<img width="616" height="346" alt="image" src="https://github.com/user-attachments/assets/4f1cbb75-8d36-45f9-9fc9-090ba5cc51be" /> <br/>
 [source](https://www.chosun.com/national/welfare-medical/2021/07/17/25SRDOHGPFH5TBEL4FFE5KKDO4/)
 
 This image was created by British behavioral futurist **William Higham**, <br/>
@@ -95,10 +95,10 @@ The same study also reported that CVA tends to be measured **lower in the sittin
 regardless of whether the participant has forward head posture.
 
 Since this application is mainly intended for users who are **sitting at a desk**,<br/>
-this difference was considered when setting the detection thresholds.
+this difference was considered when setting the detection thresholds. <br/>
 
-[Reference](https://pubmed.ncbi.nlm.nih.gov/38665167/) Evaluation of the Craniovertebral Angle in Standing versus Sitting Positions in Young Adults with and without Severe Forward Head Posture
-David A. Titcomb et al. / January 2024  
+[Reference](https://pubmed.ncbi.nlm.nih.gov/38665167/) (Evaluation of the Craniovertebral Angle in Standing versus Sitting Positions in Young Adults with and without Severe Forward Head Posture
+David A. Titcomb et al. / January 2024)
 
 
 ---
