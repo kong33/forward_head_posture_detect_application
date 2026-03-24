@@ -280,7 +280,6 @@ By consolidating the stack, we minimized configuration inconsistencies and impro
 
 This approach:
 
-- Protects against clickjacking with `X-Frame-Options: DENY`
 - Prevents content-type sniffing attacks with `X-Content-Type-Options: nosniff`
 - Reduces cross-origin referrer leakage with a `strict referrer policy`
 - Restricts access to sensitive browser capabilities through `Permissions-Policy`
