@@ -4,6 +4,7 @@
 
 ## 📑 Table of Contents
 - [📌 Overview](#-overview)
+- [💚 Demo](#-demo)
 - [👉 Why do you need BoogiBoogi?](#-why-do-you-need-boogiboogi)
 - [🧪 Scientific Background](#-scientific-background)
 - [📋 How was the detection threshold set?](#detection-threshold)
@@ -23,8 +24,67 @@ Most web-based posture correction systems rely on a **side-view camera setup**, 
 This application estimates forward head posture using only a **front-facing webcam**, <br/>
 allowing users to measure posture naturally during everyday computer use without extra hardware or environmental adjustments.<br/>
 Plus, no video or photo data of the user is serving to server for the privacy!
-<img width="908" height="613" alt="image" src="https://github.com/user-attachments/assets/7016e40e-2891-431e-84c0-4e848003409b" />
-<img width="909" height="613" alt="image" src="https://github.com/user-attachments/assets/99fbb8a7-fd88-4a0d-97e5-d5c6d08eb7ac" />
+
+## 💚 Demo
+[📱production](https://forward-head-posture-detect-applica.vercel.app/en)
+<table>
+  <tr>
+    <td width="45%">
+      <img src="https://github.com/user-attachments/assets/7016e40e-2891-431e-84c0-4e848003409b" width="100%" alt="image1" />
+    </td>
+    <td width="55%">
+      <b>1. Main Page </b><br/>
+     The personalized home screen includes: <br/>
+     - A monthly calendar showing posture status by date.<br/>
+     - Warning messages and feedback based on posture measurements.<br/>
+     - Cards for measurement time, warning count, and cumulative average angle.<br/>
+     - A 3D avatar for visualizing the user’s posture status.<br/>
+     - A character growth UI for tracking posture improvement progress.<br/>
+     - Language switching for multilingual support.<br/>
+     - Sound controls for audio-related features.<br/>
+    - A profile button for account or My Page access.<br/>
+    </td>
+  </tr>
+  <tr>
+    <td width="45%">
+      <img src="https://github.com/user-attachments/assets/99fbb8a7-fd88-4a0d-97e5-d5c6d08eb7ac" width="100%" alt="image2" />
+    </td>
+    <td width="55%">
+      <b>2. Estimate page</b><br/>
+      - Users can check their posture in this page.<br/>
+      - Start measuring by clicking the button. <br/>
+    </td>
+  </tr>
+  <tr>
+    <td width="45%">
+      <img src="https://github.com/user-attachments/assets/92b47fe0-9cc1-4989-9713-93a5bceaec64" width="100%" alt="image3" />
+    </td>
+    <td width="55%">
+      <b>3. Tip modal</b><br/>
+      - Users can check tips for the best measuring environment.
+    </td>
+  </tr>
+  <tr>
+    <td width="45%">
+      <img src="https://github.com/user-attachments/assets/b7b76ac6-0758-48d7-b0f7-afb1074fbc67" width="100%" alt="image4" />
+    </td>
+    <td width="55%">
+      <b>4. Estimating UI</b><br/>
+      - Users can see themselves through the video canvas, but any video or photo is not sent to server. <br/>
+      - If users have bad posture, badge will change into red and beep sound is played.<br/>
+      
+    </td>
+  </tr>
+  <tr>
+    <td width="45%">
+      <img src="https://github.com/user-attachments/assets/4592a4d9-211a-4700-af12-25570d28de7f" width="100%" alt="image5" />
+    </td>
+    <td width="55%">
+      <b>5. Popup function </b><br/>
+      - Provides a picture-in-picture popup so users can check their posture in a small floating window instead of keeping the full browser open.
+    </td>
+  </tr>
+</table>
 
 ---
 ### 🧠 Posture Detection Algorithm
