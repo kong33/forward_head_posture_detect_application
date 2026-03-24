@@ -41,8 +41,8 @@ Plus, no video or photo data of the user is serving to server for the privacy!
      - A 3D avatar for visualizing the user’s posture status.<br/>
      - A character growth UI for tracking posture improvement progress.<br/>
      - Language switching for multilingual support.<br/>
-     - Sound controls for audio-related features.<br/>
-    - A profile button for account or My Page access.<br/>
+     - Sound controls.<br/>
+    - A profile button for account/character/sensitivity settings.<br/>
     </td>
   </tr>
   <tr>
