@@ -23,6 +23,8 @@ Most web-based posture correction systems rely on a **side-view camera setup**, 
 This application estimates forward head posture using only a **front-facing webcam**, <br/>
 allowing users to measure posture naturally during everyday computer use without extra hardware or environmental adjustments.<br/>
 Plus, no video or photo data of the user is serving to server for the privacy!
+<img width="908" height="613" alt="image" src="https://github.com/user-attachments/assets/7016e40e-2891-431e-84c0-4e848003409b" />
+<img width="909" height="613" alt="image" src="https://github.com/user-attachments/assets/99fbb8a7-fd88-4a0d-97e5-d5c6d08eb7ac" />
 
 ---
 ### 🧠 Posture Detection Algorithm
