@@ -15,6 +15,7 @@
   - [📈 Optimization](#-optimization)
   - [🔐 Focusing on Security](#-focusing-on-security)
   - [👾 Backend & API Architecture](#-backend--api-architecture)
+  - [🤖 Ai using philosophy](#-ai-using-philosophy)
 
 ---
 ## 📌 Overview
@@ -443,6 +444,15 @@ error message that users see:
   },
 ```
 ---
+
+### 🤖 AI using philosophy
+- I added my coding philosopy to the cursor rules. Such as ... 
+    - Seperate buisness logic from UI.
+    - Do not leak database structure in API response.
+- I use Cursor for repeated, simple tasks. Such as ...
+    - Change <button> into <Button> in whole code base.
+    - Move componets that has to do with 'estimate'page into app/estimate/components folder.
+ 
 
 ### 🍀Thanks for reading! 
 ## 🌝 We are waiting for the contribution!! Every feedback is welcomed !!
