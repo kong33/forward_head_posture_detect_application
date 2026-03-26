@@ -450,7 +450,7 @@ error message that users see:
     - Seperate buisness logic from UI.
     - Do not leak database structure in API response.
 - I use Cursor for repeated, simple tasks. Such as ...
-    - Change <button> into <Button> in whole code base.
+    - Change `<button>` into `<Button>` in whole code base.
     - Move componets that has to do with 'estimate'page into app/estimate/components folder.
  
 
