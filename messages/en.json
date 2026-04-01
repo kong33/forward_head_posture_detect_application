@@ -748,9 +748,9 @@
     }
   },
   "MiniWarningPip": {
-    "getReady": "not estimating",
-    "warning": "Warning!",
-    "good": "Good Posture!",
+    "getReadyTitle": "not estimating",
+    "warningTitle": "Warning!",
+    "goodTitle": "Good Posture!",
     "stop": "stop"
   },
   "HelpMessageModal": {

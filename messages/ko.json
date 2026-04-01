@@ -742,9 +742,9 @@
     }
   },
   "MiniWarningPip": {
-    "getReady": "측정 중이 아닙니다.",
-    "warning": "거북목 경고!",
-    "good": "완벽해요!",
+    "getReadyTitle": "측정 중이 아닙니다.",
+    "warningTitle": "거북목 경고!",
+    "goodTitle": "완벽해요!",
     "stop": "측정 중단"
   },
   "HelpMessageModal": {
