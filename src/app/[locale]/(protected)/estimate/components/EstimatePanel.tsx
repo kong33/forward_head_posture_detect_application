@@ -5,8 +5,9 @@ import type { StatusPillVariant } from "@/utils/types";
 import { StatusPill } from "./StatusPill";
 import LoadingSkeleton from "@/components/LoadingSkeleton";
 import type { GuideColor, StatusBannerType } from "@/utils/types";
-import { useDocumentPiP } from "@/providers/PipProvider";
+import { useDocumentPiP } from "@/controllers/PipController";
 import { PipToggleButton } from "./PipToggleButton";
+import { usePiPStore } from "@/app/store/usePipStore";
 
 type EstimatePanelProps = {
   bannerType: StatusBannerType;
@@ -71,7 +72,8 @@ export default function EstimatePanel({
 }: EstimatePanelProps) {
   const t = useTranslations("EstimatePanel");
   const isTurtle = bannerType === "warning";
-  const { pipWindow, openPiP, closePiP } = useDocumentPiP();
+  const pipWindow = usePiPStore((state) => state.pipWindow);
+  const { openPiP, closePiP } = useDocumentPiP();
 
   const pillVariant = getStatusPillVariant({
     stopEstimating,
