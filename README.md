@@ -12,10 +12,12 @@
 - [🛠 Tech Stack](#-tech-stack)
 - [🧑‍🤝‍🧑 Team members and roles](#team-members-and-roles)
 - [💻 My contribution](#my-contribution)
+  - [⚙️Feature](#-feature)
   - [📈 Optimization](#-optimization)
   - [🔐 Focusing on Security](#-focusing-on-security)
   - [👾 Backend & API Architecture](#-backend--api-architecture)
   - [🤖 Ai using philosophy](#-ai-using-philosophy)
+  
 
 ---
 ## 📌 Overview
@@ -213,6 +215,14 @@ https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 ---
 
 # My contribution 
+- 43% out of 4 team members (based on pr numbers)
+---
+# ⚙️ Feature
+### Frontend
+- state managing with zustand
+- custom hooks
+
+
 ---
 # 📈 Optimization
 
