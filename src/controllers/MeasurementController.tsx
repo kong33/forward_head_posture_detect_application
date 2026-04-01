@@ -15,6 +15,7 @@ import { logger } from "@/lib/logger";
 import { StatusBannerType } from "@/utils/types";
 import type { GuideColor } from "@/utils/types";
 
+import { useMeasurementStore } from "@/app/store/useMeasurementStore";
 export const MEASUREMENT_CANVAS_SLOT_ID = "measurement-canvas-slot";
 
 const SESSION_STORAGE_MEASUREMENT_INTERRUPTED = "measurement_interrupted";
@@ -33,7 +34,6 @@ type MeasurementContextValue = {
   statusBannerMessage: () => string;
   isTurtle: boolean;
   angle: number;
-  elapsedSeconds: number;
   isProcessing: boolean;
   canvasSlotId: string;
   isFirstFrameDrawn: boolean;
@@ -45,24 +45,30 @@ const MeasurementContext = createContext<MeasurementContextValue | null>(null);
 
 export function useMeasurement() {
   const ctx = useContext(MeasurementContext);
-  if (!ctx) throw new Error("useMeasurement must be used within MeasurementProvider");
+  if (!ctx) throw new Error("[MeasurementController] : useMeasurement must be used within MeasurementController");
   return ctx;
 }
 
-export function MeasurementProvider({ children }: { children: ReactNode }) {
+export function MeasurementController({ children }: { children: ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
   const { data: session } = useSession();
   const userId = (session?.user as any)?.id as string;
 
-  const [stopEstimating, setStopEstimating] = useState(true);
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [elapsedSeconds, setElapsedSeconds] = useState(0);
+  //elapsedSecond is not called here cause if it's called this controller will be rendered every single second.
+  const stopEstimating = useMeasurementStore((state) => state.stopEstimating);
+  const isProcessing = useMeasurementStore((state) => state.isProcessing);
+  const setStopEstimating = useMeasurementStore((state) => state.setStopEstimating);
+  const setIsProcessing = useMeasurementStore((state) => state.setIsProcessing);
+  const incrementElapsedSeconds = useMeasurementStore((state) => state.incrementElapsedSeconds);
+  const resetElapsedSeconds = useMeasurementStore((state) => state.resetElapsedSeconds);
+
   const [showRecoveryNotice, setShowRecoveryNotice] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [_dailySumState, dailySumAction] = useActionState(postDailySummaryAction, null);
   const [slotEl, setSlotEl] = useState<HTMLElement | null>(null);
   const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -119,34 +125,42 @@ export function MeasurementProvider({ children }: { children: ReactNode }) {
         logger.error("[handleStopMeasurement] error:", err);
         resetForNewMeasurement();
       } finally {
-        if (!forced) setStopEstimating((prev) => !prev);
+        if (!forced) setStopEstimating(!stopEstimating);
         setIsProcessing(false);
         resetForNewMeasurement();
-        // delete flag when it's ended normally
         if (typeof window !== "undefined") {
           sessionStorage.removeItem(SESSION_STORAGE_MEASUREMENT_INTERRUPTED);
         }
       }
     },
-    [userId, stopEstimating, angle, isTurtle, isProcessing, session?.user?.id, dailySumAction],
+    [
+      userId,
+      stopEstimating,
+      angle,
+      isTurtle,
+      isProcessing,
+      session?.user?.id,
+      dailySumAction,
+      setIsProcessing,
+      setStopEstimating,
+      resetForNewMeasurement,
+    ],
   );
 
   const startMeasurement = useCallback(() => {
     setShowRecoveryNotice(false);
     setStopEstimating(false);
-  }, []);
+  }, [setStopEstimating]);
 
-  const stopMeasurement = useCallback(() => {
-    handleStopMeasurement();
+  const stopMeasurement = useCallback(async () => {
+    await handleStopMeasurement();
   }, [handleStopMeasurement]);
 
-  // set flag when the measurement started
   useEffect(() => {
     if (typeof window === "undefined" || !measurementStarted) return;
     sessionStorage.setItem(SESSION_STORAGE_MEASUREMENT_INTERRUPTED, "1");
   }, [measurementStarted]);
 
-  // when user moves to other pages
   useEffect(() => {
     if (pathname !== "/estimate" && pathname !== "/") {
       if (measurementStarted) {
@@ -156,9 +170,8 @@ export function MeasurementProvider({ children }: { children: ReactNode }) {
     } else if (pathname === "/" && !measurementStarted) {
       setStopEstimating(true);
     }
-  }, [pathname, measurementStarted, handleStopMeasurement]);
+  }, [pathname, measurementStarted, handleStopMeasurement, setStopEstimating]);
 
-  // restart measuring
   useEffect(() => {
     if (typeof window === "undefined" || !userId) return;
     const interrupted = sessionStorage.getItem(SESSION_STORAGE_MEASUREMENT_INTERRUPTED);
@@ -181,14 +194,17 @@ export function MeasurementProvider({ children }: { children: ReactNode }) {
     }
   }, [dismissRecoveryNotice, pathname, router]);
 
+  // fixed logic : now component is not rendered every time!
   useEffect(() => {
     if (stopEstimating || !measurementStarted) {
-      setElapsedSeconds(0);
+      resetElapsedSeconds();
       return;
     }
-    const interval = setInterval(() => setElapsedSeconds((s) => s + 1), 1000);
+    const interval = setInterval(() => {
+      incrementElapsedSeconds();
+    }, 1000);
     return () => clearInterval(interval);
-  }, [stopEstimating, measurementStarted]);
+  }, [stopEstimating, measurementStarted, incrementElapsedSeconds, resetElapsedSeconds]);
 
   const value = useMemo(
     () => ({
@@ -205,7 +221,6 @@ export function MeasurementProvider({ children }: { children: ReactNode }) {
       statusBannerMessage,
       isTurtle,
       angle,
-      elapsedSeconds,
       isProcessing,
       canvasSlotId: MEASUREMENT_CANVAS_SLOT_ID,
       isFirstFrameDrawn,
@@ -227,7 +242,6 @@ export function MeasurementProvider({ children }: { children: ReactNode }) {
       statusBannerMessage,
       isTurtle,
       angle,
-      elapsedSeconds,
       isProcessing,
       isFirstFrameDrawn,
       guideMessage,
@@ -235,6 +249,7 @@ export function MeasurementProvider({ children }: { children: ReactNode }) {
       resetForNewMeasurement,
     ],
   );
+
   useEffect(() => {
     if (!mounted) return;
     const slotEl = typeof document !== "undefined" ? document.getElementById(MEASUREMENT_CANVAS_SLOT_ID) : null;
@@ -258,7 +273,6 @@ export function MeasurementProvider({ children }: { children: ReactNode }) {
           portalTarget,
         )}
 
-      {/* video - hide always */}
       <video ref={videoRef} className="absolute -left-[9999px]" muted playsInline />
 
       <RecoveryNotice
