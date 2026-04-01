@@ -221,6 +221,7 @@ https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 ### Frontend
 - state managing with zustand
 - custom hooks
+- UI component
 
 
 ---
