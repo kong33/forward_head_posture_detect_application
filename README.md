@@ -259,6 +259,57 @@ I am working on my code with this rules. <br/>
   };
 ```
 #### 3. Similar levels of abstraction: Make sure that level of abstraction is similar in a component, page ...etc.
+😭 before refactoring <br/>
+```ts
+     <div>
+        <Button>
+           ...
+        </Button>
+            <div
+                className={`grid transition-all duration-300 ease-in-out ${
+                isAccordionOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-3.5 pb-3.5 pt-0 text-[13px] leading-relaxed text-[var(--green)]">
+                        <ul className="flex flex-col gap-1.5">
+                          {item.descriptions.map((desc, idx) => (
+                            <li key={idx} className="flex gap-1.5 items-start">
+                              <span className="mt-0.5 text-[var(--green-mid)] text-[10px]">●</span>
+                              <span>{desc}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </>
+```
+🥰 after refactoriing <br/>
+```ts
+ <div>
+    <Button>
+       ...
+    </Button>
+      <div className="custom-scrollbar flex max-h-[400px] flex-col gap-2.5 overflow-y-auto pr-1">
+          {GUIDE_DATA.map((item) => (
+              <HelpAccordionItem
+                key={item.id}
+                item={item}
+                isOpen={openAccordionId === item.id}
+                onToggle={() => toggleAccordion(item.id)}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+```
 #### 4. Birds of a feather flock together: Make the codes that has same goal gather together.
 
 - state managing with zustand ( MeasurementController, PipController, Soundcontroller )
