@@ -237,7 +237,7 @@ useEffect(() => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedCharacter]);
 ```
-🥰 after refactoriing <br/>
+🥰 after refactoring <br/>
 ```ts
   useHandleHotKey("Enter", () => {
     if (selectedCharacter) {
@@ -267,7 +267,7 @@ useEffect(() => {
     router.push("/");
   };
 ```
-🥰 after refactoriing <br/>
+🥰 after refactoring <br/>
 ```ts
  const saveCharacterAndRedirect = (characterId: string) => {
     if (typeof window != "undefined") {
@@ -317,7 +317,7 @@ useEffect(() => {
       </div>
     </>
 ```
-🥰 after refactoriing <br/>
+🥰 after refactoring <br/>
 ```ts
  <div>
     <Button>
