@@ -219,6 +219,12 @@ https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 ---
 # 📍 features
 ### Frontend
+I am working on my code with this rules. <br/>
+#### 1. Clean code: Write codes that you can find logic quickly.
+#### 2. One task in one function: Function does one job at once.
+#### 3. Similar levels of abstraction: Make sure that level of abstraction is similar in a component, page ...etc.
+#### 4. Birds of a feather flock together: Make the codes that has same goal gather together.
+
 - state managing with zustand ( MeasurementController, PipController, Soundcontroller )
 - custom hooks ( useFriendsData ... )
 - UI component( HelpMessageModal, MiniWarningPip ... )
