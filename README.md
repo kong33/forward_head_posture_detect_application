@@ -314,7 +314,7 @@ I am working on my code with this rules. <br/>
 
 - state managing with zustand ( MeasurementController, PipController, Soundcontroller )
 - custom hooks ( useFriendsData ... )
-- UI component( HelpMessageModal, MiniWarningPip ... )
+- UI component/page ( HelpMessageModal, CharacterPAge ... )
 
 ### Backend
 - All logic on BE side.
