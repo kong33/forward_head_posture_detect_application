@@ -220,8 +220,43 @@ https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 # 📍 features
 ### Frontend
 I am working on my code with this rules. <br/>
+
 #### 1. Clean code: Write codes that you can find logic quickly.
 #### 2. One task in one function: Function does one job at once.
+😭 before refactoring <br/>
+```ts
+ const handleConfirm = () => {
+    if (selectedCharacter) {
+      if (typeof window !== "undefined") {
+        localStorage.setItem("selectedCharacter", selectedCharacter);
+      }
+      router.push("/");
+    }
+  };
+
+  const handleSkip = () => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("selectedCharacter", "remy");
+    }
+    router.push("/");
+  };
+```
+🥰 after refactoriing <br/>
+```ts
+ const saveCharacterAndRedirect = (characterId: string) => {
+    if (typeof window != "undefined") {
+      localStorage.setItem("selectedCharacter", characterId);
+    }
+  };
+  const handleConfirm = () => {
+    if (selectedCharacter) {
+      saveCharacterAndRedirect(selectedCharacter);
+    }
+  };
+  const handleSkip = () => {
+    saveCharacterAndRedirect("remy");
+  };
+```
 #### 3. Similar levels of abstraction: Make sure that level of abstraction is similar in a component, page ...etc.
 #### 4. Birds of a feather flock together: Make the codes that has same goal gather together.
 
