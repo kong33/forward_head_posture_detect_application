@@ -247,6 +247,7 @@ I am working on my code with this rules. <br/>
     if (typeof window != "undefined") {
       localStorage.setItem("selectedCharacter", characterId);
     }
+    router.replace("/");
   };
   const handleConfirm = () => {
     if (selectedCharacter) {
