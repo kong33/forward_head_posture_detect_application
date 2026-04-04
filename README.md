@@ -12,7 +12,7 @@
 - [🛠 Tech Stack](#-tech-stack)
 - [🧑‍🤝‍🧑 Team members and roles](#team-members-and-roles)
 - [💻 My contribution](#my-contribution)
-  - [⚙️ Feature](#-feature)
+  - [📍 Features](#-features)
   - [📈 Optimization](#-optimization)
   - [🔐 Focusing on Security](#-focusing-on-security)
   - [👾 Backend & API Architecture](#-backend--api-architecture)
@@ -217,12 +217,14 @@ https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 # My contribution 
 - 43% out of 4 team members (based on pr numbers)
 ---
-# ⚙️ Feature
+# 📍 features
 ### Frontend
-- state managing with zustand
-- custom hooks
-- UI component
+- state managing with zustand ( MeasurementController, PipController, Soundcontroller )
+- custom hooks ( useFriendsData ... )
+- UI component( HelpMessageModal, MiniWarningPip ... )
 
+### Backend
+- All logic on BE side.
 
 ---
 # 📈 Optimization
@@ -363,7 +365,7 @@ This middleware-based approach made security rules easier to maintain and ensure
 ---
 # 👾 Backend & API Architecture
 
-## 🚀Type-Safe API Layer
+## 🚀 Type-Safe API Layer
 Constructed robust APIs using Next.js Server Actions, strictly validating client payloads via **Zod** to ensure runtime safety.
 ```ts
 //actions/summaryActions.ts
@@ -425,7 +427,7 @@ export async function postDailySummaryAction(_prevState: ActionState<unknown>, d
 
    ---
 
-## 🚀Robust Social System
+## 🚀 Robust Social System
 Implemented scalable friendship management ensuring data consistency and integrity using Prisma `$transaction`.
 
 ```ts
@@ -439,7 +441,7 @@ Implemented scalable friendship management ensuring data consistency and integri
   ```
   ---
   
-## 🚀Enterprise-level Error Handling
+## 🚀 Enterprise-level Error Handling
 Integrated a centralized logging utility with **Sentry**, providing context-aware error tracking and i18n-ready, <br/>
 user-friendly error messages while securing sensitive stack traces in production.
 
@@ -465,7 +467,7 @@ error message that users see:
     - Move componets that has to do with 'estimate'page into app/estimate/components folder.
  
 
-### 🍀Thanks for reading! 
+### 🍀 Thanks for reading! 
 ## 🌝 We are waiting for the contribution!! Every feedback is welcomed !!
 [feedback link](https://docs.google.com/forms/d/e/1FAIpQLSeRNoOKH3aNfmu0_JMZFy6Vslur6jfBuNlrj-5-Cekjen9wpw/viewform?usp=dialog)
 ---
