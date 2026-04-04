@@ -222,6 +222,32 @@ https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 I am working on my code with this rules. <br/>
 
 #### 1. Clean code: Write codes that you can find logic quickly.
+😭 before refactoring <br/>
+```ts
+useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Enter" && selectedCharacter) {
+        handleConfirm();
+      } else if (e.key === "Escape") {
+        handleSkip();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedCharacter]);
+```
+🥰 after refactoriing <br/>
+```ts
+  useHandleHotKey("Enter", () => {
+    if (selectedCharacter) {
+      handleConfirm();
+    }
+  });
+  useHandleHotKey("Escape", () => {
+    handleSkip();
+  });
+```
 #### 2. One task in one function: Function does one job at once.
 😭 before refactoring <br/>
 ```ts
@@ -313,8 +339,8 @@ I am working on my code with this rules. <br/>
 #### 4. Birds of a feather flock together: Make the codes that has same goal gather together.
 
 - state managing with zustand ( MeasurementController, PipController, Soundcontroller )
-- custom hooks ( useFriendsData ... )
-- UI component/page ( HelpMessageModal, CharacterPAge ... )
+- custom hooks ( useFriendsData, useHandleHotKey ... )
+- UI component/page ( HelpMessageModal, CharacterSelectionPage ... )
 
 ### Backend
 - All logic on BE side.
