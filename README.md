@@ -219,6 +219,12 @@ https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 ---
 # 📍 features
 ### Frontend
+
+- state managing with zustand ( MeasurementController, PipController, Soundcontroller )
+- custom hooks ( useFriendsData, useHandleHotKey ... )
+- UI component/page ( HelpMessageModal, CharacterSelectionPage ... )
+(currently on original repo's develop branch - https://github.com/CapstoneDesign-KHU-2025/forward_head_posture_detect_application)
+
 I am working on my code with this rules. <br/>
 
 #### 1. Clean code: Write codes that you can find logic quickly.
@@ -338,9 +344,6 @@ useEffect(() => {
 ```
 #### 4. Birds of a feather flock together: Make the codes that has same goal gather together.
 
-- state managing with zustand ( MeasurementController, PipController, Soundcontroller )
-- custom hooks ( useFriendsData, useHandleHotKey ... )
-- UI component/page ( HelpMessageModal, CharacterSelectionPage ... )
 
 ### Backend
 - All logic on BE side.
