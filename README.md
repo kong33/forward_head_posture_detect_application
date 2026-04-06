@@ -223,7 +223,7 @@ https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 - state managing with zustand ( MeasurementController, PipController, Soundcontroller )
 - custom hooks ( useFriendsData, useHandleHotKey ... )
 - UI component/page ( HelpMessageModal, CharacterSelectionPage ... )<br/>
-(These are currently on original repo's develop branch - https://github.com/CapstoneDesign-KHU-2025/forward_head_posture_detect_application)
+(These are currently on develop branch)
 
 I am working on my code with this rules. <br/>
 
