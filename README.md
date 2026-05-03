@@ -17,6 +17,7 @@
   - [🔐 Focusing on Security](#-focusing-on-security)
   - [👾 Backend & API Architecture](#-backend--api-architecture)
   - [🤖 Ai using philosophy](#-ai-using-philosophy)
+  - [📉 Data analysis for accuracy](#-data-analysis-for-accuracy)
   
 
 ---
@@ -215,7 +216,7 @@ https://kge0211114.atlassian.net/jira/software/projects/TNA/boards/34
 ---
 
 # My contribution 
-- 43% out of 4 team members (based on pr numbers)
+- 51% out of 4 team members (based on commit numbers)
 ---
 # 📍 features
 ### Frontend
@@ -580,13 +581,15 @@ error message that users see:
 ---
 
 ### 🤖 AI using philosophy
-- I added my coding philosopy to the cursor rules. Such as ... 
-    - Seperate buisness logic from UI.
-    - Do not leak database structure in API response.
-- I use Cursor for repeated, simple tasks. Such as ...
+- I added our coding philosopy to Claude Code skills.
+- I use this skills for repeated, simple tasks. Such as ...
     - Change `<button>` into `<Button>` in whole code base.
     - Move componets that has to do with 'estimate'page into app/estimate/components folder.
- 
+- I also consider Claude Code as a senior developer I can discuss about the refactoring.
+
+### 📉 Data analysis for accuracy
+[data analysis board](https://github.com/kong33/boogiboogi-streamlit)
+- I analyzed our CVA data and removed the noises.
 
 ### 🍀 Thanks for reading! 
 ## 🌝 We are waiting for the contribution!! Every feedback is welcomed !!
